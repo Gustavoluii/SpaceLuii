@@ -120,51 +120,96 @@ bot.on("message", async message => {
         msg.react("🎵").then(r => {
         msg.react("📸").then(r => {
         msg.react("🌑").then(r => {
+	    msg.react("⏪").then(r => {
 
             const Moderação = (reaction, user) => reaction.emoji.name === '🔨' && user.id === message.author.id;
             const musica = (reaction, user) => reaction.emoji.name === '🎵' && user.id === message.author.id;
             const imagem = (reaction, user) => reaction.emoji.name === '📸' && user.id === message.author.id;
-            const geral = (reaction, user) => reaction.emoji.name === '🌑' && user.id === message.author.id;
+			const geral = (reaction, user) => reaction.emoji.name === '🌑' && user.id === message.author.id;
+			const menu = (reaction, user) => reaction.emoji.name === '⏪' && user.id === message.author.id;
 
             const mod = msg.createReactionCollector(Moderação);
             const msc = msg.createReactionCollector(musica);
             const ima = msg.createReactionCollector(imagem);
-            const ger = msg.createReactionCollector(geral);
+			const ger = msg.createReactionCollector(geral);
+			const men = msg.createReactionCollector(menu);
+			
 
-            mod.on('collect', r=> {
-                const embed = new Discord.RichEmbed()
+          //  mod.on('collect', r=> {
+            //    const embedmod = new Discord.RichEmbed()
+           //     .setColor("#0174DF")
+           //     .setAuthor("🔨 Moderação")
+          //      .setDescription("`>ban` - `Banir um membro.`\n`>kick` - `Expulsar um membro.`\n`>mute` - `mutar um membro.`")
+           //     message.member.edit({embed: embedmod}); //.then(a=>a.delete(13000));
+           //     })
+         //   msc.on('collect', r=> {
+            //    const embedmsc = new Discord.RichEmbed()
+           //     .setColor("#0174DF")
+           //     .setAuthor("🎵 Música")
+           //     .setDescription("`>play` - `diciona uma musica a lista para tocar.`\n`>stop` - `Para a música e limpa a lista.`\n`>skip` - `Pular uma música.`\n`>volume` - `Aumentar ou diminuir o volume.`\n`>np` - `Informação da música que está tocando.`\n`>queue` - `Lista de músicas.`\n`>pause` - `Pausar uma música.`\n`>resume` - `Tirar música do modo Pause.`")
+           //     message.member.send({embed: embedmsc}); //.then(a=>a.delete(13000));
+           //     })
+         //   ima.on('collect', r=> {
+          //      const embedima = new Discord.RichEmbed()
+          //      .setColor("#0174DF")
+          //      .setAuthor("📸 Imagem")
+          //      .setDescription("`>dog` - `Foto de cachorrinho.`\n`>cat` - `Foto de gatinho.`")
+          //     message.member.send({embed: embedima}); //.then(a=>a.delete(13000));
+          //      })
+          //  ger.on('collect', r=> {
+          //      const embedger = new Discord.RichEmbed()
+           //     .setColor("#0174DF")
+           //     .setAuthor("🌑 Comandos")
+           //     .setDescription("`>votação` - `Abrir uma enquete.`\n`>anunciar` - `Anúnciar alguma mensagem.`\n`>info` - `Informações do bot.`\n`>ping` - `Latência do bot.`\n`>penis` - `Tamanho da sua peça.`\n`>uptime` - `informação de tempo online.`")
+           //     message.member.send({embed: embedger}); //.then(a=>a.delete(13000));
+           //     })
+		   
+				
+			mod.on('collect', r => { 
+				const embedmod = new Discord.RichEmbed()
                 .setColor("#0174DF")
                 .setAuthor("🔨 Moderação")
-                .setDescription("`>ban` - `Banir um membro.`\n`>kick` - `Expulsar um membro.`\n`>mute` - `mutar um membro.`")
-                message.member.send({embed: embed}).then(a=>a.delete(13000));
-                })
-            msc.on('collect', r=> {
-                const embed = new Discord.RichEmbed()
+				.setDescription("`>ban` - `Banir um membro.`\n`>kick` - `Expulsar um membro.`\n`>mute` - `mutar um membro.`")
+				msg.edit(embedmod);
+				
+			  })
+			msc.on('collect', r2 => { 
+				const embedmsc = new Discord.RichEmbed()
                 .setColor("#0174DF")
                 .setAuthor("🎵 Música")
                 .setDescription("`>play` - `diciona uma musica a lista para tocar.`\n`>stop` - `Para a música e limpa a lista.`\n`>skip` - `Pular uma música.`\n`>volume` - `Aumentar ou diminuir o volume.`\n`>np` - `Informação da música que está tocando.`\n`>queue` - `Lista de músicas.`\n`>pause` - `Pausar uma música.`\n`>resume` - `Tirar música do modo Pause.`")
-                message.member.send({embed: embed}).then(a=>a.delete(13000));
-                })
-            ima.on('collect', r=> {
-                const embed = new Discord.RichEmbed()
+				msg.edit(embedmsc);
+			  })
+			ima.on('collect', r3 => { 
+				const embedima = new Discord.RichEmbed()
                 .setColor("#0174DF")
                 .setAuthor("📸 Imagem")
                 .setDescription("`>dog` - `Foto de cachorrinho.`\n`>cat` - `Foto de gatinho.`")
-                message.member.send({embed: embed}).then(a=>a.delete(13000));
-                })
-            ger.on('collect', r=> {
-                const embed = new Discord.RichEmbed()
+				msg.edit(embedima);
+			  })
+			ger.on('collect', r4 => { 
+				const embedger = new Discord.RichEmbed()
                 .setColor("#0174DF")
                 .setAuthor("🌑 Comandos")
                 .setDescription("`>votação` - `Abrir uma enquete.`\n`>anunciar` - `Anúnciar alguma mensagem.`\n`>info` - `Informações do bot.`\n`>ping` - `Latência do bot.`\n`>penis` - `Tamanho da sua peça.`\n`>uptime` - `informação de tempo online.`")
-                message.member.send({embed: embed}).then(a=>a.delete(13000));
-                })
-           
+				msg.edit(embedger);
+			  })
+			  men.on('collect', r5 => { 
+				let ajudamebedd = new Discord.RichEmbed()
+				.setColor("#0174DF")
+				.setAuthor("SpaceLuii - Ajuda", LOGO)
+				.setDescription("Selecione alguma categoria que você deseja usar:\n:hammer: » Relacionado à Moderação.\n:musical_note: » Relacionado à Música.\n:camera_with_flash: » Relacionado à Imagens.\n:new_moon: » Relacionado à Comandos.")
+				msg.edit(ajudamebedd);
+				})
+			  })
+
             })
          })
       })
     })
 })      
+
+
         let ajudachatembed = new Discord.RichEmbed()
         .addField("Okay!", "Foi enviado uma lista com todos os meus comandos em seu privado!")
         .setColor("#0174DF")
