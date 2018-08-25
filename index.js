@@ -8,7 +8,7 @@ const YouTube = require('simple-youtube-api');
 const ytdl = require('ytdl-core');
 bot.commands = new Discord.Collection();
 
-const youtube = new YouTube(tokenfile.GOOGLE_API_KEY);
+const youtube = new YouTube(process.env.GOOGLE_API_KEY);
 
 const queue = new Map();
 
@@ -355,4 +355,4 @@ function play(guild, song) {
 }
 
 
-bot.login(tokenfile.TOKEN);
+bot.login(process.env.TOKEN);
