@@ -1,5 +1,4 @@
 const Discord = require("discord.js");
-const tokenfile = require("./config.json");
 const fs = require("fs");
 const superagent = require("superagent");
 const bot = new Discord.Client({fetchAllMembers: true});
