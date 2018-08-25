@@ -11,6 +11,7 @@ const youtube = new YouTube(process.env.GOOGLE_API_KEY);
 
 const queue = new Map();
 
+bot.login(process.env.TOKEN);
 
 const PREFIX = ">";
 const LOGO = "https://i.imgur.com/MqKv0af.png";
@@ -354,4 +355,3 @@ function play(guild, song) {
 }
 
 
-bot.login(process.env.TOKEN);
