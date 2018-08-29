@@ -45,7 +45,7 @@ bot.on("ready", () => {
 });
 
 bot.on('guildMemberAdd', member => {
-    member.guild.channels.get('425865939691765760').send(member.user+", Seja bem vindo ao servidor. :boa06padrao:");
+    member.guild.channels.get('425865939691765760').send(member.user+", Seja bem vindo ao servidor <3");
 });
 
 
