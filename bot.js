@@ -60,7 +60,11 @@ bot.on("message", async message => {
     let commandfile = bot.commands.get(cmd.slice(prefix.length));
     if(commandfile) commandfile.run(bot,message,args);
 
-
+    if(cmd === `${prefix}serve`){
+    	if(message.author.id !== "231611977053503488") return await message.channel.send("Esse comando só está disponível para o meu dono!");
+		message.channel.send(`\`\`\`${bot.guilds.map(g => g.id + " " + g.name + " " + g.members.size).join("\n")}\`\`\``)
+}
+	
     if(cmd === `${prefix}reiniciar`){
     if(message.author.id !== "231611977053503488") return await message.channel.send("Esse comando só está disponível para o meu dono!");
     resetBot(message.channel)
