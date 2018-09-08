@@ -102,12 +102,12 @@ bot.on("message", async message => {
         message.channel.send(dogembed);
     }
 
-    if (message.content.includes("https://discord.gg/")) {
-       if (!message.member.hasPermission("ADMINISTRATOR")) {
-            message.delete();
-            message.reply("Você não pode enviar link de outros grupos nesse grupo!");
-        }
-    }
+  //  if (message.content.includes("https://discord.gg/")) {
+    //   if (!message.member.hasPermission("ADMINISTRATOR")) {
+     //       message.delete();
+     //       message.reply("Você não pode enviar link de outros grupos nesse grupo!");
+     //   }
+  //  }
 
     if(cmd === `${prefix}info`){
         message.channel.sendMessage("Estou online em `"+bot.guilds.size+"` Planetas com `"+bot.users.size+"` terráqueos.");
